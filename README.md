@@ -2,7 +2,7 @@
 https://cstack.github.io/db_tutorial/parts/part1.html
 
 ### SQLite architecture
-&emsp;`Tokenizer`  
+&ensp;&ensp;`Tokenizer`  
 &emsp;&emsp;&emsp;↓  
 &emsp;&ensp;`Parser`  
 &emsp;&emsp;&emsp;↓  
