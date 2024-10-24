@@ -3,17 +3,17 @@ https://cstack.github.io/db_tutorial/parts/part1.html
 
 ### SQLite architecture
 `Tokenizer`  
-&emsp;&emsp;↓  
-&emsp;`Parser`  
-&emsp;&emsp;↓  
+&emsp;&emsp;&emsp;↓  
+&emsp;&emsp;`Parser`  
+&emsp;&emsp;&emsp;↓  
 `Code Generator`  
-&emsp;&emsp;↓  
+&emsp;&emsp;&emsp;↓  
 `Virtual Machine`  
-&emsp;&emsp;↓  
+&emsp;&emsp;&emsp;↓  
 &emsp;`B-Tree`  
-&emsp;&emsp;↓  
+&emsp;&emsp;&emsp;↓  
 &emsp; `Pager`  
-&emsp;&emsp;↓  
+&emsp;&emsp;&emsp;↓  
 `Os Interface`    
 
 **Tokenizer** *front-end*: 
