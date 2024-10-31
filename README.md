@@ -1,5 +1,7 @@
 # Build my own SQLite database
 https://cstack.github.io/db_tutorial/parts/part1.html
+### Random Notes
+- Non-SQL statements like .exit are called “meta-commands”. They all start with a dot, so we check for them and handle them in a separate function. 
 
 ### SQLite architecture
 &ensp;&ensp;`Tokenizer`  
