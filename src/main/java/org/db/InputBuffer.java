@@ -20,4 +20,8 @@ public class InputBuffer {
         this.inputLength = buffer.length();
         this.bufferLength = buffer.length();
     }
+
+    public boolean startsWith(String input) {
+        return buffer.startsWith(input);
+    }
 }
