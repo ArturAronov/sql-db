@@ -1,6 +1,6 @@
 package org.db.enums;
 
-public enum StatementType {
+public enum StatementE {
     STATEMENT_INSERT,
     STATEMENT_SELECT
 }

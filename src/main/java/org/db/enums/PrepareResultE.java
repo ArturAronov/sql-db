@@ -1,6 +1,6 @@
 package org.db.enums;
 
-public enum PrepareResult {
+public enum PrepareResultE {
     PREPARE_SUCCESS,
     PREPARE_UNRECOGNIZED_STATEMENT
 }
