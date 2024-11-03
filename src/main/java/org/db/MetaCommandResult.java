@@ -10,8 +10,8 @@ public class MetaCommandResult {
     }
 
     public MetaCommandResultE doMetaCommand() {
-        if(inputBuffer.equals(".exit")){
-            System.exit(1);
+        if(".exit".equals(inputBuffer.getBuffer())){
+            System.exit(0);
             return MetaCommandResultE.META_COMMAND_SUCCESS;
         } else {
             return MetaCommandResultE.META_COMMAND_UNRECOGNIZED_COMMAND;
