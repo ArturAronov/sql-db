@@ -4,7 +4,6 @@ import org.db.enums.PrepareResultE;
 import org.db.enums.StatementE;
 
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Statement {
     public StatementE type;
