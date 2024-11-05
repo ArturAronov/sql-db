@@ -1,7 +1,29 @@
 # Build my own SQLite database
 https://cstack.github.io/db_tutorial/parts/part2.html
 ### Random Notes
-- Non-SQL statements like .exit are called “meta-commands”. They all start with a dot, so we check for them and handle them in a separate function. 
+- Non-SQL statements like .exit are called “meta-commands”. They all start with a dot, so we check for them and handle them in a separate function.
+- `offset`: In database structure, an offset typically refers to the physical position or displacement of data within the storage system. Here are the key points:
+  1. File / Page Level:
+     - Offset indicates the exact byte position where data begins within the database file or page
+     - Used to locate and retrieve specific records quickly
+     - Helps in organizing data blocks and manage storage space
+  2. Record Structure:
+     - Points to the position of fields/columns withing a record
+     - Used for calculating where each field's data begins and ends
+     - Helps maintain fixed or variable-length record formats
+  3. Index usage:
+     - Helps maintain pointer structures in indexes
+     - Used for quick data retrieval without scanning entire tables
+     - Stores physical locations of data rows
+
+  | column    | size (bytes) | offset |
+  |-----------|--------------|--------|
+  | id        | 4            | 0      |
+  | username  | 32           | 34     |
+  | email     | 255          | 36     |  
+  | **total** | **291**      |        |
+
+
 
 ### SQLite architecture
 &ensp;&ensp;`Tokenizer`  
