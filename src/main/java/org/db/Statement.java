@@ -3,6 +3,9 @@ package org.db;
 import org.db.enums.PrepareResultE;
 import org.db.enums.StatementE;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Statement {
     public StatementE type;
     private InputBuffer inputBuffer;
@@ -13,8 +16,19 @@ public class Statement {
 
     public PrepareResultE prepareStatement() {
         if(inputBuffer.getBuffer().startsWith("insert")) {
-            this.type = StatementE.STATEMENT_INSERT;
-            return PrepareResultE.PREPARE_SUCCESS;
+            Matcher matcher = InputBuffer.match("insert (\\d+) (\\S+) (\\S+)", inputBuffer.getBuffer());
+
+            if(matcher.find()) {
+//                Integer id = Integer.parseInt(matcher.group(1));
+//                String userName = matcher.group(2);
+//                String email = matcher.group(3);
+//
+//                Row row = new Row(id, userName, email);
+                this.type = StatementE.STATEMENT_INSERT;
+                return PrepareResultE.PREPARE_SUCCESS;
+            } else {
+                return PrepareResultE.PREPARE_SYNTAX_ERROR;
+            }
         }
 
         if(inputBuffer.getBuffer().startsWith("select")) {
