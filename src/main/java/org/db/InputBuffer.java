@@ -1,5 +1,8 @@
 package org.db;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class InputBuffer {
     public String buffer;
     public long inputLength;
@@ -23,5 +26,12 @@ public class InputBuffer {
 
     public boolean startsWith(String input) {
         return buffer.startsWith(input);
+    }
+
+    public static Matcher match(String regex, String input) {
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(input);
+
+        return matcher;
     }
 }
