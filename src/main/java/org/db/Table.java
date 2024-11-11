@@ -4,20 +4,28 @@ import java.nio.ByteBuffer;
 
 public class Table {
     // Page is 4 kilobytes.
-    private int numRows;
-    private ByteBuffer[] pages;
-    public static int ROWS_PER_PAGE;
-    private static int TABLE_MAX_ROWS;
+    private final int numRows;
+    private final ByteBuffer[] pages;
+
     private static final int PAGE_SIZE = 4096;
     private static final int TABLE_MAX_PAGES = 100;
 
+    private final int ROW_SIZE;
+    private final int ROWS_PER_PAGE;
+    private final int TABLE_MAX_ROWS;
+
     public Table(int numRows) {
+        Serializer serializer = new Serializer();
+
         this.numRows = numRows;
-        this.ROWS_PER_PAGE = PAGE_SIZE / numRows;
-        this.TABLE_MAX_ROWS = this.ROWS_PER_PAGE * this.TABLE_MAX_PAGES;
+        this.ROW_SIZE = serializer.getIdSize() + serializer.getEmailSize() + serializer.getUsernameSize();
+        this.ROWS_PER_PAGE = PAGE_SIZE / this.ROW_SIZE;
+        this.TABLE_MAX_ROWS = this.ROWS_PER_PAGE * TABLE_MAX_PAGES;
+
+        this.pages = new ByteBuffer[TABLE_MAX_PAGES];
     }
 
-    public void rowSlot(int rowNum) {
+    public ByteBuffer rowSlot(int rowNum) {
         int pageNum = rowNum / this.ROWS_PER_PAGE;
         ByteBuffer page = pages[pageNum];
         if(page == null) {
@@ -27,7 +35,9 @@ public class Table {
         }
 
         int rowOffset = rowNum % ROWS_PER_PAGE;
-        int byteOffset = rowOffset * this.ROW_SIZE;
+        int byteOffset = rowOffset * ROW_SIZE;
 
+        page.position(byteOffset);
+        return page.slice();
     }
 }

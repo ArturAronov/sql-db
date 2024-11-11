@@ -79,4 +79,16 @@ public class Serializer {
         Row row = new Row(id, username, email);
         return row;
     }
+
+    public int getIdSize() {
+        return ID_SIZE;
+    }
+
+    public int getEmailSize() {
+        return EMAIL_SIZE;
+    }
+
+    public int getUsernameSize() {
+        return USERNAME_SIZE;
+    }
 }
