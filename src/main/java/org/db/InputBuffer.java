@@ -30,8 +30,6 @@ public class InputBuffer {
 
     public static Matcher match(String regex, String input) {
         Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(input);
-
-        return matcher;
+        return pattern.matcher(input);
     }
 }
