@@ -1,5 +1,5 @@
 # Build my own SQLite database
-https://cstack.github.io/db_tutorial/parts/part2.html
+https://cstack.github.io/db_tutorial/parts/part3.html
 ### Random Notes
 - Non-SQL statements like .exit are called “meta-commands”. They all start with a dot, so we check for them and handle them in a separate function.
 - `offset`: In database structure, an offset typically refers to the physical position or displacement of data within the storage system. Here are the key points:
@@ -17,13 +17,13 @@ https://cstack.github.io/db_tutorial/parts/part2.html
      - Stores physical locations of data rows
 
   | column    | size (bytes) | offset |
-  |-----------|--------------|--------|
-  | id        | 4            | 0      |
-  | username  | 32           | 34     |
-  | email     | 255          | 36     |  
-  | **total** | **291**      |        |
-
-
+  |-----------|:------------:|:------:|
+  | id        |      4       |   0    |
+  | username  |      32      |   34   |
+  | email     |     255      |   36   |  
+  | **total** |   **291**    |        |
+- `arraycopy(Object src, int srcPos, Object dest, int destPos, int length)`
+- When creating table, rows should not cross page boundaries. Since pages probably won't exist next to each other in memory, this assumption makes it easier to read/write rows.
 
 ### SQLite architecture
 &ensp;&ensp;`Tokenizer`  
